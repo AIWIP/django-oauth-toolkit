@@ -235,3 +235,12 @@ class RevokeTokenView(OAuthLibMixin, View):
         for k, v in headers.items():
             response[k] = v
         return response
+
+class CreateDeviceCodeView(OAuthLibMixin, View):
+    pass
+
+class AuthorizeDeviceCodeView(OAuthLibMixin, View):
+    pass
+
+class PollDeviceCodeView(OAuthLibMixin, View):
+    pass
