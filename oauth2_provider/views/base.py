@@ -237,7 +237,20 @@ class RevokeTokenView(OAuthLibMixin, View):
         return response
 
 class CreateDeviceCodeView(OAuthLibMixin, View):
-    pass
+    """
+    Implements an endpoint to create device token
+    """
+    server_class = oauth2_settings.OAUTH2_SERVER_CLASS
+    validator_class = oauth2_settings.OAUTH2_VALIDATOR_CLASS
+    oauthlib_backend_class = oauth2_settings.OAUTH2_BACKEND_CLASS
+
+    def post(self, request, *args, **kwargs):
+        url, headers, body, status = self.create_revocation_response(request)
+        response = HttpResponse(content=body or "", status=status)
+
+        for k, v in headers.items():
+            response[k] = v
+        return response
 
 class AuthorizeDeviceCodeView(OAuthLibMixin, View):
     pass
