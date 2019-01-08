@@ -1,5 +1,5 @@
 # flake8: noqa
-from .base import AuthorizationView, TokenView, RevokeTokenView
+from .base import AuthorizationView, TokenView, RevokeTokenView, CreateDeviceCodeView, AuthorizeDeviceCodeView, PollDeviceCodeView
 from .application import ApplicationRegistration, ApplicationDetail, ApplicationList, \
     ApplicationDelete, ApplicationUpdate
 from .generic import ProtectedResourceView, ScopedProtectedResourceView, ReadWriteScopedResourceView
