@@ -236,6 +236,7 @@ class RevokeTokenView(OAuthLibMixin, View):
             response[k] = v
         return response
 
+@method_decorator(csrf_exempt, name="dispatch")
 class CreateDeviceCodeView(OAuthLibMixin, View):
     """
     Implements an endpoint to create device token
